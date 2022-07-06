@@ -1,0 +1,58 @@
+
+#include <LiquidCrystal_I2C.h>
+const int relay0 = 15;
+const int relay1 = 4;
+//const int relay2 = 0;
+const int relay3 = 2;
+
+int lcdColumns = 16;
+int lcdRows = 2;
+LiquidCrystal_I2C lcd(0x27, lcdColumns, lcdRows);  
+
+void setup() {
+    // initialize LCD
+  lcd.init();
+  // turn on LCD backlight                      
+  lcd.backlight();
+  
+  Serial.begin(115200);
+  pinMode(relay0, OUTPUT);
+  pinMode(relay1, OUTPUT);
+  //pinMode(relay2, OUTPUT);
+  pinMode(relay3, OUTPUT);
+
+}
+
+void loop() {
+ lcd.setCursor(0, 0);
+  // print message
+  lcd.print("Hello, World!");
+  delay(1000);
+  // clears the display to print new message
+  lcd.clear();
+  // set cursor to first column, second row
+  lcd.setCursor(0,1);
+  lcd.print("Hello, World!");
+  delay(1000);
+  lcd.clear(); 
+  
+  digitalWrite(relay0, HIGH);
+ delay(1000); 
+  digitalWrite(relay0, LOW);
+ delay(1000);
+  digitalWrite(relay1, HIGH);
+  delay(1000);
+  digitalWrite(relay1, LOW);
+  delay(1000);
+  //digitalWrite(relay2, HIGH);
+  //delay(1000);
+  //digitalWrite(relay2, LOW);
+  //delay(1000);
+  digitalWrite(relay3, HIGH);
+  delay(1000);
+  digitalWrite(relay3, LOW);
+  delay(2000); 
+
+
+  
+}
