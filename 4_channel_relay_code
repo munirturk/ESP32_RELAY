@@ -2,7 +2,7 @@
 #include <LiquidCrystal_I2C.h>
 const int relay0 = 15;
 const int relay1 = 4;
-//const int relay2 = 0;
+const int relay2 = 16;
 const int relay3 = 2;
 
 int lcdColumns = 16;
@@ -18,7 +18,7 @@ void setup() {
   Serial.begin(115200);
   pinMode(relay0, OUTPUT);
   pinMode(relay1, OUTPUT);
-  //pinMode(relay2, OUTPUT);
+  pinMode(relay2, OUTPUT);
   pinMode(relay3, OUTPUT);
 
 }
@@ -44,10 +44,10 @@ void loop() {
   delay(1000);
   digitalWrite(relay1, LOW);
   delay(1000);
-  //digitalWrite(relay2, HIGH);
-  //delay(1000);
-  //digitalWrite(relay2, LOW);
-  //delay(1000);
+  digitalWrite(relay2, HIGH);
+  delay(1000);
+  digitalWrite(relay2, LOW);
+  delay(1000);
   digitalWrite(relay3, HIGH);
   delay(1000);
   digitalWrite(relay3, LOW);
